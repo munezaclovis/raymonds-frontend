@@ -1,7 +1,127 @@
-:root{
-
+/* Root variables */
+:root {
 }
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #edf2f7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cbd5e0;
+	border-radius: 100px;
+	border: 1px solid #edf2f7;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #a0aec0;
+}
+
+/* ./styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind variants;
+
+/* Extend tailwind */
+@layer base {
+	.nav__links {
+		scroll-bar-width: thin;
+		scrollbar-color: #f8f8f8;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	#App {
+		@apply text-[16px] font-normal bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100 font-ubuntu box-border m-0 left-0 top-0 max-w-full w-full h-screen z-[1];
+	}
+
+	.nav {
+		@apply flex justify-center items-center min-h-[75px] max-h-[75px] text-gray-500 bg-white px-3 border-b-[1px];
+	}
+
+	.nav__logo {
+		@apply uppercase tracking-[5px] text-[22px] mr-auto;
+	}
+
+	.nav__links {
+		@apply fixed flex flex-col justify-start bg-white items-center h-[calc(100%-75px)] top-[75px] w-1/2 -left-full overflow-y-auto overflow-x-hidden;
+		transition: left 0.4s ease-in 0s;
+	}
+
+	.nav__links > * {
+		@apply hover:text-purple-900 py-5;
+	}
+
+	.nav__links > *::after {
+		content: "";
+		@applyblock mx-[-50%] w-full border-b-[1px] border-gray-500;
+	}
+
+	.nav_mobile_toggle {
+		@apply visible  w-8 mr-auto;
+	}
+
+	.nav_mobile_open {
+		@apply left-0;
+	}
+
+	.line {
+		fill: none;
+		stroke: black;
+		stroke-width: 6;
+		transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+			stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	.line1 {
+		stroke-dasharray: 60 207;
+		stroke-width: 6;
+	}
+	.line2 {
+		stroke-dasharray: 60 60;
+		stroke-width: 6;
+	}
+	.line3 {
+		stroke-dasharray: 60 207;
+		stroke-width: 6;
+	}
+	.opened .line1 {
+		stroke-dasharray: 90 207;
+		stroke-dashoffset: -134;
+		stroke-width: 6;
+	}
+	.opened .line2 {
+		stroke-dasharray: 1 60;
+		stroke-dashoffset: -30;
+		stroke-width: 6;
+	}
+	.opened .line3 {
+		stroke-dasharray: 90 207;
+		stroke-dashoffset: -134;
+		stroke-width: 6;
+	}
+
+	@screen md {
+		.nav__logo {
+			@apply w-auto;
+		}
+
+		.nav__links {
+			@apply relative flex opacity-100 h-auto top-0 flex-row justify-start items-center space-x-5 tracking-[1px] w-auto left-0;
+		}
+
+		.nav_mobile_toggle {
+			@apply hidden;
+		}
+
+		.nav__links > * {
+			@apply hover:text-purple-900 py-0;
+		}
+	}
+}

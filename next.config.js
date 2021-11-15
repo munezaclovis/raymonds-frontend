@@ -1,4 +1,6 @@
-/** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: true,
-}
+	reactStrictMode: true,
+	images: {
+		domains: ["bhp8dz3x.cdn.imgeng.in", "ebvklpq0.cdn.imgeng.in"],
+	},
+};
