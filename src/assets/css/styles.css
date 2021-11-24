@@ -1,0 +1,21 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	@apply font-ubuntu min-h-screen leading-6 m-0 p-0;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+}
+
+.notfound__background {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
