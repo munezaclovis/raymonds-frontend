@@ -1,4 +1,4 @@
-const HeaderIcon = ({ Icon, ...rest }) => {
+const HeaderIcon = ({ Icon, ...rest }: any) => {
 	return (
 		<div>
 			<Icon {...rest} />
